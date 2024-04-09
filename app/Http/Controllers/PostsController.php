@@ -19,7 +19,7 @@ class PostsController extends Controller
     public function index()
     {
         //
-        $posts=Post :: all();
+        $posts=Post :: with('comments')->get();
         return response()->json([
             'status'=>'success',
             'posts'=>$posts
